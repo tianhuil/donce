@@ -9,8 +9,8 @@ class SimpleRecord(Base):
   __tablename__ = 'simple_donce_record'
 
   id = Column(Integer, primary_key=True)
-  name = Column(String(255))
-  key = Column(String(255))
+  name = Column(String(255, convert_unicode=True))
+  key = Column(String(255, convert_unicode=True))
 
 
 class BloomRecord(Base):
