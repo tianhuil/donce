@@ -1,6 +1,6 @@
 #!/bin/bash
 
-PASSWORD='skm39c82l9x'
+PASSWORD=`cat password.txt`
 echo $PASSWORD > ~/.mysql_donce_user_pw
 echo "
 CREATE DATABASE IF NOT EXISTS donce_db;
