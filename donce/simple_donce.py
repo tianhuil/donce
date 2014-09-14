@@ -17,6 +17,10 @@ class SimpleDonce(object):
 
   def add(self, key, skip_check=False):
     """ Adds key.  If key is already there, returns True, otherwise False. """
+    # SQLAlchemy will coerce into string.
+    # This fixes a loading bug where int keys are loaded from the DB as strings and not matched
+    key = str(key)
+
     if not skip_check and key in self:
       return True
 
