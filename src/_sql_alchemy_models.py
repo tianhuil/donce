@@ -1,7 +1,7 @@
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import Column, Integer, String
 from sqlalchemy.types import LargeBinary
-from donce._sql_alchemy_helpers import get_sql_session
+from _sql_alchemy_helpers import get_sql_session
 
 Base = declarative_base()
 
