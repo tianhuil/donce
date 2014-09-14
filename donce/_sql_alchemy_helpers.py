@@ -1,6 +1,6 @@
 import getpass
 import os
-from sqlalchemy.orm import sessionmaker
+from sqlalchemy.orm import sessionmaker, scoped_session
 from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 import logging
@@ -17,8 +17,7 @@ def get_sql_session(user=DONCE_USER, db=DONCE_DB, echo=False):
 
   # start and connect to mysql
   engine = create_engine('mysql://%s:%s@localhost/%s' % (user, passwd, db), echo=echo)
-  Session = sessionmaker(bind=engine)
-  session = Session()
+  session = scoped_session(sessionmaker(bind=engine))
   base = declarative_base()
   base.metadata.create_all(engine)
   return session, engine
